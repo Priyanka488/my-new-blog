@@ -58,7 +58,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#fff`,
         display: `standalone`,
-        icon: `./static/favicon.ico`,
+        icon: `./static/favicon-16x16.png`,
         theme_color_in_head: false,
       },
     },
