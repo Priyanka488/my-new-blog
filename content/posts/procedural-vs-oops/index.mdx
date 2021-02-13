@@ -1,0 +1,216 @@
+---
+title: Procedural vs OOPS ft. Suits
+date: 2021-02-12
+description: Know the differenece for once and all. 
+tags:
+  - Software Engineering
+banner: ./coverAllThree.jpeg
+---
+
+Here's my effort of bringing up the concept of Traditional Procedural Programming vs Object-Oriented Programming in the form of a story.
+
+
+There were 2 associates - Harvey and Louis( Yes, I have been watching Suits these days :P)
+
+And Jessica, their managing partner,  gave them the following problem to solve-
+
+```
+There are 2 kinds of Associates in the Firm - 
+FirstYearAssociates and SecondYearAssociates
+
+Both of them have the following functions to perform -
+
+- minor research 
+- prepare documents
+```
+
+Jessica asked Harvey and Louis to solve this problem in an efficient way, and the solution that's most efficient and scalable will be sent over to the client.
+
+Now, Louis decided to go on with the **Procedural programming approach**, and Harvey insisted on following the **Object-Oriented programming**.
+
+Louis divided the work to be done in the form of procedures/functions. He created two functions - `minorResearch()` and `prepareDocuments()` and wrote the following code for the problem-
+
+```
+void minorResearch(string associate) {
+  //
+  //
+
+}
+
+void prepareDocuments(string associate) {
+  //
+  //
+
+}
+```
+
+Now, Harvey wanted to come up with something that would solve the problem in an efficient and scalable way.
+
+He was aware that OOPs is best whenever we need to code real-life situations, so he created two classes - `FirstYearAssociates` and `SecondYearAssociates` and defined functions for both of them.
+
+
+```
+class FirstYearAssociates {
+  void research() {
+
+    // DO MINOR RESEARCH
+
+  }
+
+  void prepareDocuments() {
+    //
+    //
+
+  }
+
+}
+```
+
+```
+
+class SecondYearAssociates {
+  void research() {
+
+    // DO MINOR RESEARCH
+
+  }
+
+  void prepareDocuments() {
+    //
+    //
+
+  }
+
+}
+```
+
+Both of them went to Jessica and pitched their solutions. Louis pointed out that he solved the problem faster and with fewer lines of code.
+However, Harvey justified that his approach is scalable and can handle future problems as well.
+
+So Jessica came up with the updated problem statement
+
+```
+The firm now has ThirdYearAssociates as well,
+ and they perform the following functions -
+
+- major research 
+- prepare documents
+- assist Senior Associates
+
+```
+Now, Louis got tensed and thought he was going to lose.
+He had to make changes in his existing code, which made it quite messy, but he was eventually able to come up with the following solution-
+
+```
+
+void research(string associate) {
+
+  if associate == "FirstYearAssociate" || associate == "SecondYearAssociate":
+    // do minor research
+
+    if associate == "ThirdYearAssociate":
+    // do major research
+
+}
+
+void prepareDocuments() {
+  //
+  //
+
+}
+
+void assistSeniorAssociates() {
+
+  //
+  //
+
+}
+```
+
+While all Harvey did, was just adding one more class for Third Year Associates-
+
+
+```
+class ThirdYearAssociates {
+  void research() {
+
+    // DO MAJOR RESEARCH
+
+  }
+
+  void prepareDocuments() {
+    //
+    //
+
+  }
+
+  void assistSeniorAssociates() {
+    //
+    //
+
+  }
+
+}
+```
+
+
+> Now to note, Louis had to make changes in his original code and will have to do that every time in case the specification changes.
+While Harvey just wrote a new class without making any changes in the previous code.
+
+So do you think Louis gave up?
+No, he argued that Harvey has written useless and duplicated code which was not even required, and he simply did it to get that promotion.
+
+
+
+Jessica asks Harvey to explain the allegation thrown upon him.
+He then explains that he is well aware of the fact that the code is repeated and the classes have a lot in common, so he has already created a **base class for all the associates** with their common features -
+
+```
+class Associate {
+
+  void research() {
+    //
+  }
+
+  void prepareDocuments() {
+    //
+  }
+
+}
+
+```
+
+Harvey emphasized on the fact that in the end, all of them are `Associates`, and all of them do research and prepare documents, so he abstracted out the common features.
+
+And derived the classes - `FirstYearAssociate`, `SecondYearAssociate`, and `ThirdYearAssociate` from the base class `Associate` itself.
+
+Even further, if any class needs to implement any special behaviors, then it can simply **override **these methods, just like we have been doing for the `research` method all this time:
+
+```
+void research() {
+  // DO MINOR RESEARCH
+}
+```
+```
+void research() {
+  // DO MAJOR RESEARCH
+}
+
+
+```
+Well !!! Who do you think won? ;)
+
+
+But now to sum it up in a generalized way.
+
+- In procedural programming, the program is divided into small parts called **functions**.	In object-oriented programming, the program is divided into small parts called **objects ( instance of a class).**
+
+- Adding new data and function is **not easy** in procedural programming, while it is **comparatively easier** in OOPS.
+
+- In procedural programming, **overriding is not possible**, while it is **possible **for OOPS.
+
+- Procedural programming is based on the **unreal world**, while OOPS is made for the **real-world**.
+
+- **C** is an example of procedural programming, whereas **C++ and Java** are Object-Oriented Languages.
+
+If you liked the write-up, leave your feedback and suggestions :)
